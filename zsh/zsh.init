@@ -1,0 +1,33 @@
+# initialise portable dotfiles
+# this is stuff I am pretty happy will work across all my different envs home/office
+
+# shortcut to this dotfiles path is $ZSHPORTABLE
+export ZSHPORTABLE=$HOME/.dotfiles-portable
+
+# your project folder that we can `p [return]` to
+export PROJECTS=~/Projects
+
+# your project folder that we can `d [return]` to
+export DOCUMENTS=~/Documents
+
+typeset -U portable_files
+portable_files=($HOME/.dotfiles-portable/**/*.zsh)
+
+for file in ${(M)portable_files:#*/path.zsh}
+do
+  source $file
+done
+
+for file in ${portable_files:#*/path.zsh}
+do
+  source $file
+done
+
+unset portable_files%
+
+fpath=($ZSHPORTABLE/functions $fpath)
+
+autoload -U $ZSHPORTABLE/functions/*(:t)
+
+#add each topic folder to fpath so that they can add functions and completion scripts
+for topic_folder ($ZSHPORTABLE/*) if [ -d $topic_folder ]; then  fpath=($topic_folder $fpath); fi;
