@@ -1,0 +1,3 @@
+pu () {
+  protean service-usage -n $1
+}
