@@ -2,7 +2,7 @@
 # this is stuff I am pretty happy will work across all my different envs home/office
 
 # shortcut to this dotfiles path is $ZSHPORTABLE
-export ZSHPORTABLE=$HOME/.dotfiles-portable
+export ZSHPORTABLE=$HOME/.dotfiles-totem-portable
 
 # your project folder that we can `p [return]` to
 export PROJECTS=~/Projects
@@ -11,7 +11,7 @@ export PROJECTS=~/Projects
 export DOCUMENTS=~/Documents
 
 typeset -U portable_files
-portable_files=($HOME/.dotfiles-portable/**/*.zsh)
+portable_files=($HOME/.dotfiles-totem-portable/**/*.zsh)
 
 for file in ${(M)portable_files:#*/path.zsh}
 do

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "source ~/.dotfiles-totem-portable/zsh/zsh.init" >> ~/.totem-localzsh
